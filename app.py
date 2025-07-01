@@ -1,3 +1,4 @@
+
 from flask import Flask, request, abort
 
 from linebot.v3 import (
@@ -19,13 +20,14 @@ from linebot.v3.webhooks import (
 )
 
 import os
+import sys
 import random
 
 app = Flask(__name__)
 
 # 環境変数からチャネルシークレットとチャネルアクセストークンを取得
-channel_secret = "c4d061d3ea8b1b32a43896f8fdf93149"
-channel_access_token = "nnHYHnKSCelWDUN7tWCuXzGsQjvjAR/4UOb+O1xc/5MkjBFyVkTWws2Kh6EQDSRvEZSfQwAvy8V71MoR9b7h1BQmuSIbjVmnXgjNAWp1KkqzFuiYGhxmN8k0hAF/WMHlZyQeuUlGPw4iimqpNpxN4QdB04t89/1O/w1cDnyilFU="
+channel_secret = os.environ.get('LINE_CHANNEL_SECRET')
+channel_access_token = os.environ.get('LINE_CHANNEL_ACCESS_TOKEN')
 
 if channel_secret is None:
     print('Specify LINE_CHANNEL_SECRET as environment variable.')
