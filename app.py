@@ -1,4 +1,3 @@
-
 from flask import Flask, request, abort
 
 from linebot.v3 import (
@@ -22,6 +21,8 @@ from linebot.v3.webhooks import (
 import os
 import sys
 import random
+
+# Render再デプロイ用のコメント
 
 app = Flask(__name__)
 
